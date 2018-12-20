@@ -7,7 +7,7 @@ import org.apache.shiro.realm.Realm;
  * 自定义Realm实现
  *
  * */
-public class MyRealm1 implements Realm {
+public class MyRealm2 implements Realm {
 
     /**
      * 返回一个唯一的Realm名字
@@ -34,15 +34,17 @@ public class MyRealm1 implements Realm {
         // 得到密码
         String password = new String( (char[])token.getCredentials() );
 
-        if ( !"zhang".equals(username) ){
+        System.out.println("xxxxxxxxxxxx");
+        if ( !"wang".equals(username) ){
             // 如果用户名错误
             throw new UnknownAccountException();
         }
-        if ( !"123".equals(password) ){
+        if ( !"456".equals(password) ){
             // 如果密码错误
+            System.out.println("mimzzzz");
             throw new IncorrectCredentialsException();
         }
-        System.out.println("zzzzzzzzzzzzzzzzzz");
+        System.out.println("yyyyyyyyyyyyyy");
         // 如果身份认证成功，返回一个AuthenticationInfo实现
         return new SimpleAuthenticationInfo(username, password, getName() );
     }
